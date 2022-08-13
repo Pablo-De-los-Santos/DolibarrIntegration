@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace DolibarrIntegration.Models
+﻿namespace DolibarrIntegration.Models
 {
-    public class GlobalConstants
+    public static class GlobalConstants
     {
-        public const string Url = "http://localhost:85/dolibarr/api/index.php/";
+        public static string Url = "http://localhost:80/dolibarr/api/index.php/";
+
+        public static string GetContacts = "http://localhost:80/dolibarr/api/index.php/contacts?";
+        public static string GetProducts = "http://localhost:80/dolibarr/api/index.php/products?";
+
 
         public static string Token = "123qwe";
     }

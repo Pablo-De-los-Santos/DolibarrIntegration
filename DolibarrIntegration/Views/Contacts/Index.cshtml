@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Contact>
+
+@{
+    ViewBag.Title = "Lista de Contactos";
+}
+
+<h2>Lista de Contactos</h2>
+
+<p>    
+    @Html.ActionLink("Agregar", "Create", "Contacts", null, new { @class = "btn btn-success"})
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.firstname)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.lastname)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.phone_pro)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstname)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.lastname)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.phone_pro)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+
+        </tr>
+    }
+
+</table>
