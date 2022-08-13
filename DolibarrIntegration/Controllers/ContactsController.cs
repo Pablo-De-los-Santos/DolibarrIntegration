@@ -20,8 +20,12 @@ namespace DolibarrIntegration.Controllers
             {
                 using (var response = await httpClient.GetAsync($"{GlobalConstants.GetContacts}&DOLAPIKEY={GlobalConstants.Token}"))
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    contacts = JsonConvert.DeserializeObject<List<Contact>>(apiResponse);
+                    if (response.IsSuccessStatusCode != false)
+                    {
+                        string apiResponse = await response.Content.ReadAsStringAsync();
+                        contacts = JsonConvert.DeserializeObject<List<Contact>>(apiResponse);
+                    }
+                
                 }
             }
 
