@@ -1,0 +1,41 @@
+﻿@model DolibarrIntegration.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.@ref)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.@ref)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.label)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.label)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.buyprice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.buyprice)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

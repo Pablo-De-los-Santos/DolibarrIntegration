@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DolibarrIntegration.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Productos</h1>
+
+<p>
+    @Html.ActionLink("Agregar", "Create", "Products", null, new { @class = "btn btn-success"})
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.@ref)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.label)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.buyprice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.@ref)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.label)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.buyprice)
+            </td>
+            <td>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
