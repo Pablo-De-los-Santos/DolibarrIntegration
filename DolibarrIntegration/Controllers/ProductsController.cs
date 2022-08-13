@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using DolibarrIntegration.Data;
 using DolibarrIntegration.Models;
 using Newtonsoft.Json;
 using System.Net.Http;
@@ -30,7 +29,6 @@ namespace DolibarrIntegration.Controllers
                         string apiResponse = await response.Content.ReadAsStringAsync();
                         products = JsonConvert.DeserializeObject<List<Product>>(apiResponse);
                     }
-
                 }
             }
 
@@ -48,8 +46,8 @@ namespace DolibarrIntegration.Controllers
             using (var httpClient = new HttpClient())
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(product), Encoding.UTF8, "application/json");
-                
-                HttpResponseMessage responde= await httpClient.PostAsync($"{GlobalConstants.GetProducts}&DOLAPIKEY={GlobalConstants.Token}", content);
+
+                HttpResponseMessage responde = await httpClient.PostAsync($"{GlobalConstants.GetProducts}&DOLAPIKEY={GlobalConstants.Token}", content);
                 return RedirectToAction("Index");
             }
         }

@@ -16,6 +16,6 @@ namespace DolibarrIntegration.Models
         public string description { get; set; }
 
         [Display(Name = "Precio")]
-        public decimal buyprice { get; set; }
+        public decimal price { get; set; }
     }
 }
