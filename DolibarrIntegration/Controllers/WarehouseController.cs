@@ -15,18 +15,13 @@ namespace DolibarrIntegration.Controllers
 {
     public class WarehouseController : Controller
     {
-
         public async Task<IActionResult> Index()
         {
-
             List<Warehouses> Warehouses = new List<Warehouses> { };
             var __Warehouses = new WarehousesList
             {
-
                 Warehouses = new List<Warehouses> { }
             };
-
-
 
             HttpClient httpClient = new HttpClient();
             HttpRequestMessage request = new HttpRequestMessage();
@@ -39,15 +34,11 @@ namespace DolibarrIntegration.Controllers
             Warehouses = JsonConvert.DeserializeObject<List<Warehouses>>(responseString);
             foreach (var _Warehouses in Warehouses)
             {
-
                 __Warehouses.Warehouses.Add(_Warehouses);
-
-
             }
 
             return View(__Warehouses);
         }
-
 
         public async Task<IActionResult> Edit(string Id)
         {
@@ -57,53 +48,39 @@ namespace DolibarrIntegration.Controllers
 
             return View(warehouses);
         }
+
         public async Task<IActionResult> SaveUserAsync(Warehouses warehouses)
         {
             try
             {
                 using (var client = new HttpClient())
                 {
-
                     StringContent content = new StringContent(JsonConvert.SerializeObject(warehouses), Encoding.UTF8, "application/json");
-
-                    var response = client.PutAsync($"{GlobalConstants.Url}warehouses/{warehouses.Id}?DOLAPIKEY={GlobalConstants.Token}", content);
-
+                    HttpResponseMessage responde = await client.PutAsync($"{GlobalConstants.Url}{warehouses.id}?DOLAPIKEY={GlobalConstants.Token}", content);
                     return RedirectToAction("Index");
-
                 }
             }
             catch (Exception)
             {
-
                 return null;
             }
         }
-        public async Task<IActionResult> Create() {
 
-
+        public async Task<IActionResult> Create()
+        {
             return View();
         }
 
-     
+        [HttpPost]
         public async Task<IActionResult> CreateWare(Warehouses warehouses)
         {
-            try
+            using (var client = new HttpClient())
             {
-                using (var client = new HttpClient())
-                {
+                StringContent content = new StringContent(JsonConvert.SerializeObject(warehouses), Encoding.UTF8, "application/json");
 
-                    StringContent content = new StringContent(JsonConvert.SerializeObject(warehouses), Encoding.UTF8, "application/json");
+                HttpResponseMessage responde = await client.PostAsync($"{GlobalConstants.Url}&DOLAPIKEY={GlobalConstants.Token}", content);
 
-                    var response = client.PostAsync($"{GlobalConstants.Url}warehouses?DOLAPIKEY={GlobalConstants.Token}", content);
-
-                    return RedirectToAction("Index");
-
-                }
-            }
-            catch (Exception)
-            {
-
-                return null;
+                return RedirectToAction("Index");
             }
         }
 
@@ -122,7 +99,6 @@ namespace DolibarrIntegration.Controllers
             _Warehouses = JsonConvert.DeserializeObject<Warehouses>(responseString);
 
             return _Warehouses;
-
         }
     }
 }

@@ -1,19 +1,14 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace DolibarrIntegration.Dto
 {
     public class Warehouses
     {
-        
-
-        public string Label { get; set;} 
-        public string Description { get; set;} 
-        public string Statut { get; set;} 
-        public string Lieu { get; set;} 
-        public string Address { get; set;}
-        public string Id { get; set; }
-
+        public string label { get; set; }
+        public string description { get; set; }
+        public string statut { get; set; }
+        public string lieu { get; set; }
+        public string address { get; set; }
+        public string id { get; set; }
     }
-   
 }
