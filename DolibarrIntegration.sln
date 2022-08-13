@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32602.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DolibarrIntegration", "DolibarrIntegration\DolibarrIntegration.csproj", "{E1151F9A-08ED-4AFF-8FBE-A0255E7A167D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DolibarrIntegration", "DolibarrIntegration\DolibarrIntegration.csproj", "{E1151F9A-08ED-4AFF-8FBE-A0255E7A167D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

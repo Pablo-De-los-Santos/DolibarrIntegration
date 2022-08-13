@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Editar o Crear";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+
+@model DolibarrIntegration.Dto.Warehouses
+
+
+<hr />
+
+
+<form asp-action="SaveUser" asp-controller="Warehouse" formmethod="post" enctype="multipart/form-data">
+    @Html.TextBoxFor(m => m.Id, new { disabled = "disabled" })
+    <div class="mb-3">
+        <label for="Address" class="form-label">Referencia</label>
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.Label, new { @class = "form-control", @placeholder = "EnterName", @requried = "required" })
+        </div>
+
+    </div>
+
+    <div class="mb-3">
+        <label for="Cellnumber" class="form-label">Nombre</label>
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.Lieu, new { @class = "form-control", @placeholder = "EnterName", @requried = "required" })
+        </div>
+
+    </div>
+    <div class="mb-3">
+        <label for="Emailid" class="form-label">Descripcion</label>
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.Description, new { @class = "form-control", @placeholder = "EnterName", @requried = "required" })
+        </div>
+
+    </div>
+    <div class="mb-3">
+        <label for="Emailid" class="form-label">Ubicacion</label>
+        <div class="col-md-4">
+            @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @placeholder = "EnterName", @requried = "required" })
+        </div>
+
+    </div>
+    <div class="mb-3">
+        <label for="Emailid" class="form-label">Estatus</label>
+        Activo:      @Html.RadioButtonFor(m => m.Statut, "1")
+        Desactivado: @Html.RadioButtonFor(m => m.Statut, "0")
+    </div>
+
+    <button type="submit" value="@Model.Id" class="btn btn-primary">Save</button>
+</form>

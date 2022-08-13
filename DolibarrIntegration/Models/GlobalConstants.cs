@@ -7,6 +7,8 @@ namespace DolibarrIntegration.Models
 {
     public class GlobalConstants
     {
-        public string Url = "http://localhost:85/dolibarr/api/index.php/";
+        public const string Url = "http://localhost:85/dolibarr/api/index.php/";
+
+        public static string Token = "123qwe";
     }
 }

@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Almacen";
+}
+@model DolibarrIntegration.Dto.WarehousesList
+
+<form class="row g-3" asp-action="Create" asp-controller="Warehouse" formmethod="post" enctype="multipart/form-data">
+
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Crear</button>
+    </div>
+
+</form>
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th scope="col">Referecia</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Ubicacion</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Opciones</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var Warehouses in Model.Warehouses)
+        {
+            <tr>
+
+                <td>@Warehouses.Label</td>
+                <td>@Warehouses.Lieu</td>
+                <td>@Warehouses.Description</td>
+                <td>@Warehouses.Address</td>
+                <td>
+                    @if (Warehouses.Statut == "0")
+                    {
+
+                        <label class="btn btn-default">Desactivado</label>
+
+                    }
+                    else
+                    {
+
+                        <label class="btn btn-success">Activo</label>
+
+                    }
+
+                </td>
+                <td>
+
+                    <form asp-action="Edit" asp-controller="Warehouse" asp-for="@Warehouses.Id" formmethod="post" enctype="multipart/form-data">
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary mb-3" value="@Warehouses.Id" name="Id">Editar</button>
+                        </div>
+                    </form>
+
+                    <a href='/user/delete/@Warehouses.Id' class="btn btn-outline-danger" role="button">
+                        Eliminar
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
